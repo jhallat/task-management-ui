@@ -1,0 +1,22 @@
+@import '../../theme/theme';
+
+.login-page-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 800px;
+  margin: auto;
+  .login-form {
+    width: 370px;
+  }
+  aside {
+    width: 370px;
+    margin-left: 30px;
+    padding-left: 30px;
+    border-left: solid 3px $primary-color;
+  }
+}
+
+
+
+

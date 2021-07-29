@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+
+$primary-color: #2E94FF;
+$primary-color-dark-100: darken($primary-color, 10%);
+$primary-color-dark-200: darken($primary-color, 20%);
+$primary-color-dark-300: darken($primary-color, 30%);
+$primary-color-dark-400: darken($primary-color, 40%);
+$primary-color-light: lighten($primary-color, 10%);
+$primary-color-x-light: lighten($primary-color, 20%);
+$primary-color-xx-light: lighten($primary-color, 30%);
+$primary-color-xxx-light: lighten($primary-color, 40%);
+
+$accent-color: #B7FEE7;
+$accent-color-dark: darken($accent-color, 10%);
+$accent-color-x-dark: darken($accent-color, 20%);
+$accent-color-xx-dark: darken($accent-color, 30%);
+$accent-color-xxx-dark: darken($accent-color, 40%);
+$accent-color-dark-500: darken($accent-color, 50%);
+$accent-color-dark-600: darken($accent-color, 60%);
+$accent-color-light: lighten($accent-color, 10%);
+$accent-color-x-light: lighten($accent-color, 20%);
+$accent-color-xx-light: lighten($accent-color, 30%);
+$accent-color-xxx-light: lighten($accent-color, 40%);
+
+$alternate-color: #AFFF7F;
+$alternate-color-dark: darken($alternate-color, 10%);
+$alternate-color-x-dark: darken($alternate-color, 20%);
+$alternate-color-xx-dark: darken($alternate-color, 30%);
+$alternate-color-xxx-dark: darken($alternate-color, 40%);
+$alternate-color-light-100: lighten($alternate-color, 10%);
+$alternate-color-light-200: lighten($alternate-color, 20%);
+$alternate-color-light-300: lighten($alternate-color, 30%);
+$alternate-color-light-400: lighten($alternate-color, 40%);
+
+$background-color: white;
+
+$primary-border-radius: 10px;
+$primary-border: solid 1px $primary-color-dark-400;
+
+$screen-width-medium: 800px;
+
+$directions:
+  "top",
+  "bottom",
+  "right",
+  "left";
+
+$margins:
+  "xx-small" 3px,
+  "x-small" 6px,
+  "small" 9px,
+  "med-small" 12px,
+  "medium" 15px,
+  "med-large" 18px,
+  "large" 21px;
+
+@each $direction in $directions {
+  @each $name, $size in $margins {
+    .margin-#{$direction}-#{$name} {
+      margin-#{$direction}: #{$size};
+    }
+  }
+}
+
+@mixin primary-input() {
+  border: solid 1px $primary-color-dark-100;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 1em;
+  &:focus {
+    outline: $primary-color solid 1px;
+  }
+  font-size: 16px;
+}
+
+@keyframes push {
+  from {
+    background-color: rgba(0,0,0,0);
+    color: $primary-color;
+  }
+  33% {
+    background-color: $primary-color;
+    color: white;
+  }
+  to {
+    background-color: rgba(0,0,0,0);
+    color: $primary-color;
+  }
+}
+
+@mixin primary-button {
+  color: $primary-color;
+  border: solid 1px rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0.025);;
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 10px;
+  &:hover {
+    border: solid 1px $primary-color;
+    background-color: rgba(0,0,0,0);;
+  }
+  &:hover:active {
+    border-radius: 10px;
+    border: solid 1px $primary-color;
+    animation-duration: 750ms;
+    animation-name: push;
+  }
+  &:hover:disabled {
+    color: gray;
+    border: solid 1px rgba(0,0,0,0);
+  }
+  &:hover:disabled:active {
+    animation: none;
+  }
+  &:disabled {
+    color: gray;
+  }
+}
+
+@mixin primary-font {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+  color: $primary-color-dark-300;
+}
+
+@mixin primary-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  label {
+    @include primary-font;
+    font-size:0.9em;
+  }
+  input {
+    @include primary-input
+  }
+}
+
+@mixin primary-link {
+  color: $primary-color;
+  font-size: 0.95em;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.primary-field {
+  @include primary-field;
+}
+
+.primary-button {
+  @include primary-button;
+}
+
+.primary-link {
+  @include primary-link
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &.justify-right {
+    justify-content: right;
+  }
+}
+

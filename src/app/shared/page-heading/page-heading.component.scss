@@ -1,0 +1,10 @@
+@import '../../../theme/theme';
+
+.page-header-container {
+  font-size: 1.15rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  color: $accent-color-dark-600;
+  border-bottom: solid 1px $accent-color-dark-600;
+}

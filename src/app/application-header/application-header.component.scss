@@ -1,0 +1,53 @@
+@import '../../theme/theme';
+
+.header-container {
+  @media only screen and (min-width: $screen-width-medium) {
+    border-top-left-radius: $primary-border-radius;
+    border-top-right-radius: $primary-border-radius;
+  }
+}
+
+.header-banner {
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+  color: white;
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-style: italic;
+  @media only screen and (min-width: $screen-width-medium) {
+    border-top-left-radius: $primary-border-radius;
+    border-top-right-radius: $primary-border-radius;
+  }
+}
+
+.header-logo {
+  width: 50px;
+  padding: 5px;
+}
+
+.header-navigation {
+  display: flex;
+  flex-direction: row;
+  background-color: $primary-color-dark-100;
+  color: $accent-color-x-light;
+  padding-left: 5px;
+}
+
+.header-navigation-link {
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-color;
+  }
+  @media only screen and (min-width: $screen-width-medium) {
+    width: auto;
+    text-align: left;
+  }
+}
+
+.selected {
+  background-color: $primary-color-dark-200;
+}
