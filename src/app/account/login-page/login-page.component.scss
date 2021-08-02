@@ -1,4 +1,4 @@
-@import '../../theme/theme';
+@import '../../../theme/theme';
 
 .login-page-container {
   display: flex;
@@ -17,6 +17,9 @@
   }
 }
 
+.login-form-error {
+  color: $error-color;
+}
 
 
 

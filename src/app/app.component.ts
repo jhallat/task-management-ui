@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AccountService} from './account.service';
+import {AccountService} from './account/account.service';
+import {UserAuth} from "./account/user-auth";
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,18 @@ import {AccountService} from './account.service';
 })
 export class AppComponent implements OnInit{
   title = 'Get Everything Done !!!';
-  isLoggedIn = false;
+  securityObject: UserAuth | undefined;
 
   constructor(private accountService: AccountService) {
+    this.securityObject = accountService.securityObject;
   }
 
-  ngOnInit(): void {
-    this.accountService.isLoggedIn().subscribe(
-      data => {
-        this.isLoggedIn = data;
-      }
-    );
+  ngOnInit(): void { }
+
+  isAuthenticated() : boolean {
+    if (this.securityObject === undefined) {
+      return false;
+    }
+    return this.securityObject.isAuthenticated;
   }
 }

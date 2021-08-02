@@ -1,4 +1,4 @@
 <div class="app-background">
-  <app-application-header [displayMenu]="isLoggedIn"></app-application-header>
-  <app-login-page></app-login-page>
+  <app-application-header [displayMenu]="isAuthenticated()"></app-application-header>
+  <router-outlet></router-outlet>
 </div>
