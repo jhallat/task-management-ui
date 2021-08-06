@@ -1,0 +1,39 @@
+@import '../../../../theme/theme';
+
+
+.page-container {
+  background-color: $background-color;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  @media only screen and (min-width: $screen-width-medium) {
+    top: 115px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 5px;
+    border: $primary-border;
+    border-radius: $primary-border-radius;
+    color: $primary-color-dark-400;
+  }
+}
+
+.page-contents {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+}
+
+.page-heading {
+  font-size: 1.15rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  color: $accent-color-dark-600;
+  border-bottom: solid 1px $accent-color-dark-600;
+}

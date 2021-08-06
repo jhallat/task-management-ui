@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageComponent } from './page/page.component';
-import { PageHeadingComponent } from './page-heading/page-heading.component';
-import { PrimaryButtonDirective } from './primary-button.directive';
-import { PrimaryFieldComponent } from './primary-field/primary-field.component';
-import { PrimaryLinkDirective } from './primary-link.directive';
+import { PageComponent } from './components/page/page.component';
+import { PrimaryButtonDirective } from './style-directives';
+import { PrimaryFieldComponent } from './components/primary-field/primary-field.component';
+import { PrimaryLinkDirective } from './style-directives';
+import {httpInterceptorProviders} from './security';
 
 
 
 @NgModule({
     declarations: [
         PageComponent,
-        PageHeadingComponent,
         PrimaryButtonDirective,
         PrimaryFieldComponent,
         PrimaryLinkDirective
     ],
   exports: [
-    PageHeadingComponent,
     PageComponent,
     PrimaryButtonDirective,
     PrimaryFieldComponent,
@@ -25,6 +23,7 @@ import { PrimaryLinkDirective } from './primary-link.directive';
   ],
     imports: [
         CommonModule
-    ]
+    ],
+  providers: [httpInterceptorProviders]
 })
 export class SharedModule { }

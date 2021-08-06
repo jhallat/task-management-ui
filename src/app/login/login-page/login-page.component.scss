@@ -1,0 +1,40 @@
+@import '../../../theme/theme';
+
+$min-horizontal-width: 925px;
+
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .login-form {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 95%;
+    @media only screen and (min-width: $min-horizontal-width) {
+      width: 370px;
+    }
+  }
+  aside {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 95%;
+    @media only screen and (min-width: $min-horizontal-width) {
+      border-left: solid 3px $primary-color;
+      width: 370px;
+      margin-left: 30px;
+      padding-left: 30px;
+    }
+  }
+  @media only screen and (min-width: $min-horizontal-width) {
+    flex-direction: row;
+    width: 800px;
+    margin: auto;
+  }
+}
+
+.login-form-error {
+  color: $error-color;
+}
+
+
+
