@@ -8,8 +8,8 @@ import {SharedModule} from './shared/shared.module';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { NotImplementedPageComponent } from './not-implemented-page/not-implemented-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { HttpClientModule} from '@angular/common/http';
   ],
     imports: [
         BrowserModule,
+        AdminModule,
         AppRoutingModule,
         SharedModule,
-        FormsModule,
         HttpClientModule
     ],
   providers: [],

@@ -4,3 +4,8 @@ export class UserClaim {
   claimType = '';
   claimValue = '';
 }
+
+export interface ClaimRequest {
+  type: string;
+  value: string;
+}

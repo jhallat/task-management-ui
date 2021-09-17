@@ -3,7 +3,8 @@ import {Observable, Subscriber, BehaviorSubject, Subject, of} from 'rxjs';
 import {UserAuth} from './user-auth';
 import {User} from './user';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
+import {ClaimRequest, UserClaim} from './user-claim';
 
 //TODO Get from env
 const API = 'http://localhost:5010/api/security/';
@@ -72,4 +73,19 @@ export class SecurityService {
       }
       return false;
    }
+
+  addUser(user: User, claims: ClaimRequest[]): Observable<boolean> {
+
+    const newUser = {
+      username: user.userName,
+      password: user.password,
+      claims
+    };
+
+    return this.http.post<boolean>(`${API}user`, newUser, httpOptions).pipe(
+      map(resp => true),
+      catchError(
+        this.handleError<boolean>('addUser', 'Unable to add new user', false))
+    );
+  }
 }

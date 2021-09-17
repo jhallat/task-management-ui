@@ -14,7 +14,7 @@ $accent-color: #B7FEE7;
 $accent-color-dark: darken($accent-color, 10%);
 $accent-color-x-dark: darken($accent-color, 20%);
 $accent-color-xx-dark: darken($accent-color, 30%);
-$accent-color-xxx-dark: darken($accent-color, 40%);
+$accent-color-dark-400: darken($accent-color, 40%);
 $accent-color-dark-500: darken($accent-color, 50%);
 $accent-color-dark-600: darken($accent-color, 60%);
 $accent-color-light: lighten($accent-color, 10%);
@@ -75,7 +75,7 @@ $margins:
   font-size: 16px;
 }
 
-@keyframes push {
+@keyframes primary-push {
   from {
     background-color: rgba(0,0,0,0);
     color: $primary-color;
@@ -90,22 +90,40 @@ $margins:
   }
 }
 
-@mixin primary-button {
-  color: $primary-color;
+@keyframes accent-push {
+  from {
+    background-color: rgba(0,0,0,0);
+    color: $accent-color-dark-500;
+  }
+  33% {
+    background-color: $accent-color-dark-500;
+    color: white;
+  }
+  to {
+    background-color: rgba(0,0,0,0);
+    color: $accent-color-dark-500;
+  }
+}
+
+@mixin button-template($color, $animation: primary-push) {
+  :host {
+   font-size: 1em;
+  }
+  color: $color;
   border: solid 1px rgba(0,0,0,0);
-  background-color: rgba(0,0,0,0.025);;
+  background-color: rgba(0,0,0,0.01);;
   padding: 5px;
   font-size: 1em;
   border-radius: 10px;
   &:hover {
-    border: solid 1px $primary-color;
+    border: solid 1px $color;
     background-color: rgba(0,0,0,0);;
   }
   &:hover:active {
     border-radius: 10px;
-    border: solid 1px $primary-color;
+    border: solid 1px $color;
     animation-duration: 750ms;
-    animation-name: push;
+    animation-name: $animation;
   }
   &:hover:disabled {
     color: gray;
@@ -117,6 +135,14 @@ $margins:
   &:disabled {
     color: gray;
   }
+}
+
+@mixin primary-button {
+  @include button-template($primary-color)
+}
+
+@mixin accent-button {
+  @include button-template($accent-color-dark-500, accent-push)
 }
 
 @mixin primary-font {
@@ -134,7 +160,16 @@ $margins:
     font-size:0.9em;
   }
   input {
-    @include primary-input
+    @include primary-input;
+  }
+  .error {
+    color: $error-color;
+    input {
+      border: solid 1px $error-color;
+      &:focus {
+        outline: $error-color solid 1px;
+      }
+    }
   }
 }
 
@@ -147,16 +182,29 @@ $margins:
   }
 }
 
-.primary-field {
-  @include primary-field;
-}
-
 .primary-button {
   @include primary-button;
 }
 
+.accent-button {
+  @include accent-button;
+}
+
 .primary-link {
   @include primary-link
+}
+
+.primary-field {
+  @include primary-field;
+}
+
+.required::after {
+  content: "*";
+}
+
+.error-label {
+  color: $error-color;
+  font-size: 0.8em;
 }
 
 .row {

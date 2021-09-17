@@ -1,0 +1,20 @@
+@import '../../../../theme/theme';
+
+.primary-checkbox-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.primary-checkbox-icon {
+  fill: $primary-color;
+  padding-top: 6px;
+}
+
+.primary-checkbox-label {
+  font-size: 0.95em;
+  padding: 0;
+  margin-left: 5px;
+  color: $primary-color-dark-300;
+}

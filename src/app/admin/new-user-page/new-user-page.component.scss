@@ -1,0 +1,15 @@
+@import "../../../theme/theme";
+
+.new-user-page-container {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-user-page-response {
+  font-size: 0.9em;
+}
+
+.new-user-page-response-error {
+  color: $error-color;
+}
